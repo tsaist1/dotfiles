@@ -1,7 +1,3 @@
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
-fi
-
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
 source "$HOME/.cargo/env"
