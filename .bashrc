@@ -1,5 +1,4 @@
 export PATH="$HOME/Library/Haskell/bin:$PATH"
-export PS1='\u@\h:\[\e[33m\]\w\[\e[0m\]\$ '
 
 source "$HOME/.cargo/env"
 
