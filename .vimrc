@@ -1,17 +1,32 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
+set nocompatible
 syntax on
 filetype indent plugin on
+
+" basic settings
 set tabstop=4
 set shiftwidth=4
+set autoindent
+set smartindent
 set expandtab
+set noesckeys
 set relativenumber
 set number
 set ignorecase
 set smartcase
 set incsearch
 set autochdir
+set nowrap
 set backspace=indent,eol,start
-set t_Co=256
+
 colorscheme desert
+
 
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
