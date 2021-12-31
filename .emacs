@@ -3,6 +3,9 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
+(package-refresh-contents)
+
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 ;; Download Evil
 (unless (package-installed-p 'evil)
@@ -11,13 +14,6 @@
 ;; Enable Evil
 (require 'evil)
 (evil-mode 1)
-
-(require 'ssh)
-(add-hook 'ssh-mode-hook
-	    (lambda ()
-	    (setq ssh-directory-tracking-mode t)
-	    (shell-dirtrack-mode t)
-	    (setq dirtrackp nil)))
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -42,7 +38,6 @@
 (show-paren-mode 1)
 (ido-mode 1)
 
-
 (setq tramp-default-method "ssh")
 (setq inhibit-splash-screen t)
 (setq inhit-startup-message t)
@@ -61,10 +56,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(gruber-darker))
+ '(custom-enabled-themes (quote (gruber-darker)))
  '(custom-safe-themes
-   '("03e26cd42c3225e6376d7808c946f7bed6382d795618a82c8f3838cd2097a9cc" default))
- '(package-selected-packages '(magit smex gruber-darker-theme evil)))
+   (quote
+    ("03e26cd42c3225e6376d7808c946f7bed6382d795618a82c8f3838cd2097a9cc" default)))
+ '(package-selected-packages (quote (magit smex gruber-darker-theme evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
