@@ -1,18 +1,37 @@
 export PS1='\u@\h:\[\e[01;32m\]\w\[\e[0m\]\$ '
-export EDITOR='vim'
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 export CLICOLOR=1
+export EDITOR='mvim'
 
 [ -r ~/.bashrc ] && . ~/.bashrc
 
 export PATH="/opt/homebrew/bin:$PATH"
-#export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/opencv/lib/pkgconfig"
 
-export LDFLAGS="-L/opt/homebrew/lib"
-export CPPFLAGS="-I/opt/homebrew/include"
+alias ctags="`brew --prefix`/bin/ctags"
 
-# opencv3 
-export PATH="/opt/homebrew/opt/opencv@3/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/opencv@3/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/opencv@3/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/opencv@3/lib/pkgconfig"
+# LLVM
+export CC="/opt/homebrew/opt/llvm/bin/clang"
+export CXX="/opt/homebrew/opt/llvm/bin/clang++"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -Wl,-rpath,/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+. "$HOME/.cargo/env"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

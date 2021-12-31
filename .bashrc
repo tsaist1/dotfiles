@@ -1,5 +1,14 @@
-alias ll="ls -la"
-alias bridges2="ssh -p 22 tsaist@bridges2.psc.edu"
+eval $(/opt/homebrew/bin/brew shellenv)
+
+alias ll="ls -als"
+
+alias flip="ssh tsais@access.engr.oregonstate.edu"
 alias cgrb="ssh -p 732 tsais@shell.cgrb.oregonstate.edu"
 alias cgrbf="ssh -p 732 tsais@files.cgrb.oregonstate.edu"
-alias flip="ssh tsais@access.engr.oregonstate.edu"
+alias bridges2="ssh -p 22 tsaist@bridges2.psc.edu"
+alias matlab="/Applications/MATLAB_R2021b.app/bin/matlab"
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+
+. "$HOME/.cargo/env"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
