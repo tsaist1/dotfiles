@@ -13,7 +13,6 @@
 	      compilation-scroll-output t)
 
 
-
 ;; http://stackoverflow.com/questions/2416655/file-path-to-clipboard-in-emacs
 (defun rc/put-file-name-on-clipboard ()
   "Put the current file name on the clipboard"
