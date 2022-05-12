@@ -4,6 +4,7 @@ export TERM=xterm-256color
 alias ll="ls -als"
 
 alias python="python3"
+alias gits="git status -uno"
 alias flip="ssh tsais@access.engr.oregonstate.edu"
 alias cgrb="ssh -p 732 tsais@shell.cgrb.oregonstate.edu"
 alias cgrbf="ssh -p 732 tsais@files.cgrb.oregonstate.edu"
