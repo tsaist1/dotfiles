@@ -15,6 +15,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq backup-directory-alist '(("." . "~/.emacs_saves")))
+(setq dired-maybe-use-globstar t)
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -25,7 +26,8 @@
 (set-frame-font "Iosevka 20")
 
 (ido-mode 1)
-(ido-everywhere 1)
+(setq ido-everywhere 1)
+(setq ido-enable-flex-matching t)
 
 ;; magit
 (global-set-key (kbd "C-c m s") 'magit-status)
@@ -52,16 +54,12 @@
   (whitespace-mode 1)
   (add-to-list 'write-file-functions 'delete-trailing-whitespace))
 
-;; c-mode-hook
-(c-add-style "my-style"
+(c-add-style "ststyle"
              '("stroutstrup"
-               (indent-tabs-mode . nil)    ; use spaces rather than tabs
-               (c-basic-offset . 4)        ; indent by four spaces
-               (c-offset-alist . ((inline-open . 0)
-                                  (brace-list-open . 0)
-                                  (statement-case-open . +)))))
+               (indent-tabs-mode . nil)
+               (c-basic-offset . 4)))
 (defun my-c++-mode-hook ()
-  (c-set-style "my-style")
+  (c-set-style "ststyle")
   (auto-fill-mode)
   (c-toggle-auto-hungry-state 1))
 
@@ -72,11 +70,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(gruber-darker))
+ '(custom-enabled-themes '(zenburn))
  '(custom-safe-themes
-   '("03e26cd42c3225e6376d7808c946f7bed6382d795618a82c8f3838cd2097a9cc" default))
+   '("fc48cc3bb3c90f7761adf65858921ba3aedba1b223755b5924398c666e78af8b" "03e26cd42c3225e6376d7808c946f7bed6382d795618a82c8f3838cd2097a9cc" default))
+ '(frame-brackground-mode 'dark)
  '(package-selected-packages
-   '(powershell multiple-cursors rainbow-mode which-key lsp-mode smex magit gruber-darker-theme evil)))
+   '(zenburn-theme powershell multiple-cursors rainbow-mode which-key lsp-mode smex magit gruber-darker-theme evil)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -2,7 +2,6 @@ eval $(/opt/homebrew/bin/brew shellenv)
 
 export TERM=xterm-256color
 alias ll="ls -als"
-
 alias python="python3"
 alias flip="ssh tsais@access.engr.oregonstate.edu"
 alias cgrb="ssh -p 732 tsais@shell.cgrb.oregonstate.edu"
